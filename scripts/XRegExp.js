@@ -660,5 +660,8 @@ if (XRegExp) {
     RegExp.prototype.validate = function (s) {var r = RegExp("^(?:" + this.source + ")$(?!\\s)", getNativeFlags(this)); if (this.global) this.lastIndex = 0; return s.search(r) === 0;};
     */
 
+    // CommonJS
+    typeof(exports) != 'undefined' ? exports.XRegExp = XRegExp : null;
+
 })();
 

@@ -1,6 +1,12 @@
 (function() {
 
-var sh = SyntaxHighlighter;
+  if (typeof require !== 'undefined') {
+    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+  }
+  if (!this.SyntaxHighlighter) {
+    return;
+  }
+var sh = this.SyntaxHighlighter;
 
 /**
  * Provides functionality to dynamically load only the brushes that a needed to render the current page.
