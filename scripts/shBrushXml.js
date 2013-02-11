@@ -1,10 +1,10 @@
 ;(function()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -12,7 +12,7 @@
 	{
 		function process(match, regexInfo)
 		{
-			var constructor = this.SyntaxHighlighter.Match,
+			var constructor = SyntaxHighlighter.Match,
 				code = match[0],
 				tag = new XRegExp('(&lt;|<)[\\s\\/\\?]*(?<name>[:\\w-\\.]+)', 'xg').exec(code),
 				result = []
@@ -43,12 +43,12 @@
 	
 		this.regexList = [
 			{ regex: new XRegExp('(\\&lt;|<)\\!\\[[\\w\\s]*?\\[(.|\\s)*?\\]\\](\\&gt;|>)', 'gm'),			css: 'color2' },	// <![ ... [ ... ]]>
-			{ regex: this.SyntaxHighlighter.regexLib.xmlComments,												css: 'comments' },	// <!-- ... -->
+			{ regex: SyntaxHighlighter.regexLib.xmlComments,												css: 'comments' },	// <!-- ... -->
 			{ regex: new XRegExp('(&lt;|<)[\\s\\/\\?]*(\\w+)(?<attributes>.*?)[\\s\\/\\?]*(&gt;|>)', 'sg'), func: process }
 		];
 	};
 
-	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['xml', 'xhtml', 'xslt', 'html'];
 
 	SyntaxHighlighter.brushes.Xml = Brush;

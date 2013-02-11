@@ -1,10 +1,10 @@
 ;(function()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -55,7 +55,7 @@
 		var statements		= '!important !default';
 		var preprocessor	= '@import @extend @debug @warn @if @for @while @mixin @include';
 		
-		var r = this.SyntaxHighlighter.regexLib;
+		var r = SyntaxHighlighter.regexLib;
 		
 		this.regexList = [
 			{ regex: r.multiLineCComments,								css: 'comments' },		// multiline comments
@@ -73,7 +73,7 @@
 			];
 	};
 
-	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['sass', 'scss'];
 
 	SyntaxHighlighter.brushes.Sass = Brush;

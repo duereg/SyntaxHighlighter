@@ -1,10 +1,10 @@
 ;(function()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -27,15 +27,15 @@
 
 		this.regexList = [
 			{ regex: /'.*$/gm,										css: 'comments' },			// one line comments
-			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },			// strings
+			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },			// strings
 			{ regex: /^\s*#.*$/gm,									css: 'preprocessor' },		// preprocessor tags like #region and #endregion
 			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),	css: 'keyword' }			// vb keyword
 			];
 
-		this.forHtmlScript( this.SyntaxHighlighter.regexLib.aspScriptTags);
+		this.forHtmlScript( SyntaxHighlighter.regexLib.aspScriptTags);
 	};
 
-	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['vb', 'vbnet'];
 
 	SyntaxHighlighter.brushes.Vb = Brush;

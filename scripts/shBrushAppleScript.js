@@ -1,10 +1,10 @@
 ;(function()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -54,7 +54,7 @@
 		];
 	};
 
-	Brush.prototype = new this.SyntaxHighlighter.Highlighter();
+	Brush.prototype = new SyntaxHighlighter.Highlighter();
 	Brush.aliases = ['applescript'];
 
 	SyntaxHighlighter.brushes.AppleScript = Brush;

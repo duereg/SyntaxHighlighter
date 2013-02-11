@@ -1,10 +1,10 @@
 ;(function()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -54,20 +54,20 @@
 		var constants	= '__FILE__ __LINE__ __METHOD__ __FUNCTION__ __CLASS__';
 
 		this.regexList = [
-			{ regex: this.SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },			// one line comments
-			{ regex: this.SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },			// multiline comments
-			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },			// double quoted strings
-			{ regex: this.SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },			// single quoted strings
+			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },			// one line comments
+			{ regex: SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },			// multiline comments
+			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },			// double quoted strings
+			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },			// single quoted strings
 			{ regex: /\$\w+/g,											css: 'variable' },			// variables
 			{ regex: new RegExp(this.getKeywords(funcs), 'gmi'),		css: 'functions' },			// common functions
 			{ regex: new RegExp(this.getKeywords(constants), 'gmi'),	css: 'constants' },			// constants
 			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword' }			// keyword
 			];
 
-		this.forHtmlScript( this.SyntaxHighlighter.regexLib.phpScriptTags);
+		this.forHtmlScript( SyntaxHighlighter.regexLib.phpScriptTags);
 	};
 
-	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['php'];
 
 	SyntaxHighlighter.brushes.Php = Brush;

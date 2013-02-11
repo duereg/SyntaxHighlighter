@@ -1,10 +1,10 @@
 ;(function()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -17,7 +17,7 @@
 				'static return super switch ' +
 				'this throw true try typeof var while with yield';
 
-		var r = this.SyntaxHighlighter.regexLib;
+		var r = SyntaxHighlighter.regexLib;
 		
 		this.regexList = [
 			{ regex: r.multiLineDoubleQuotedString,					css: 'string' },			// double quoted strings
@@ -31,7 +31,7 @@
 		this.forHtmlScript(r.scriptScriptTags);
 	};
 
-	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['js', 'jscript', 'javascript'];
 
 	SyntaxHighlighter.brushes.JScript = Brush;

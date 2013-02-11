@@ -1,10 +1,10 @@
 ;(function()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -12,7 +12,7 @@
 	{
 		function hereDocProcess(match, regexInfo)
 		{
-			var constructor = this.SyntaxHighlighter.Match,
+			var constructor = SyntaxHighlighter.Match,
 				result = []
 				;
 			if (match.here_doc != null)
@@ -45,16 +45,16 @@
 		this.regexList = [
 			{ regex: /^#!.*$/gm,											css: 'preprocessor bold' },
 			{ regex: /\/[\w-\/]+/gm,										css: 'plain' },
-			{ regex: this.SyntaxHighlighter.regexLib.singleLinePerlComments,		css: 'comments' },		// one line comments
-			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,			css: 'string' },		// double quoted strings
-			{ regex: this.SyntaxHighlighter.regexLib.singleQuotedString,			css: 'string' },		// single quoted strings
+			{ regex: SyntaxHighlighter.regexLib.singleLinePerlComments,		css: 'comments' },		// one line comments
+			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,			css: 'string' },		// double quoted strings
+			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,			css: 'string' },		// single quoted strings
 			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),			css: 'keyword' },		// keywords
 			{ regex: new RegExp(this.getKeywords(commands), 'gm'),			css: 'functions' },		// commands
 			{ regex: new XRegExp("(?<full_tag>(&lt;|<){2}(?<tag>\\w+)) .*$(?<here_doc>[\\s\\S]*)(?<end_tag>^\\k<tag>$)",'gm'),	func: hereDocProcess }
 			];
 	}
 
-	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['bash', 'shell', 'sh'];
 
 	SyntaxHighlighter.brushes.Bash = Brush;

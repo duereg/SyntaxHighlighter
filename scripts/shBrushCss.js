@@ -1,10 +1,10 @@
 ;(function()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -53,9 +53,9 @@
 		var fonts =		'[mM]onospace [tT]ahoma [vV]erdana [aA]rial [hH]elvetica [sS]ans-serif [sS]erif [cC]ourier mono sans serif';
 	
 		this.regexList = [
-			{ regex: this.SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },	// multiline comments
-			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },	// double quoted strings
-			{ regex: this.SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },	// single quoted strings
+			{ regex: SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },	// multiline comments
+			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },	// double quoted strings
+			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },	// single quoted strings
 			{ regex: /\#[a-fA-F0-9]{3,6}/g,								css: 'value' },		// html colors
 			{ regex: /(-?\d+)(\.\d+)?(px|em|pt|\:|\%|)/g,				css: 'value' },		// sizes
 			{ regex: /!important/g,										css: 'color3' },	// !important
@@ -70,7 +70,7 @@
 			});
 	};
 
-	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['css'];
 
 	SyntaxHighlighter.brushes.CSS = Brush;

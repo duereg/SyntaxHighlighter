@@ -1,10 +1,10 @@
 ;(function()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -26,18 +26,18 @@
 						;
 
 		this.regexList = [
-			{ regex: this.SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },
-			{ regex: this.SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },
-			{ regex: this.SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },
-			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },
+			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },
+			{ regex: SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },
+			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },
+			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },
 			{ regex: /(-?\.?)(\b(\d*\.?\d+|\d+\.?\d*)(e[+-]?\d+)?|0x[a-f\d]+)\b\.?/gi, css: 'color2' },	// numbers
 			{ regex: new RegExp(this.getKeywords(datatypes), 'gm'),		css: 'variable' },	// datatypes
 			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword' }
 		];
-		this.forHtmlScript( this.SyntaxHighlighter.regexLib.aspScriptTags);
+		this.forHtmlScript( SyntaxHighlighter.regexLib.aspScriptTags);
 	};
 
-	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['jfx', 'javafx'];
 
 	SyntaxHighlighter.brushes.JavaFX = Brush;

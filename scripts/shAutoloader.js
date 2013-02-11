@@ -1,26 +1,26 @@
 (function() {
 
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
-var sh = this.SyntaxHighlighter;
+var sh = SyntaxHighlighter;
 
 /**
  * Provides functionality to dynamically load only the brushes that a needed to render the current page.
  *
  * There are two syntaxes that autoload understands. For example:
  * 
- *this.SyntaxHighlighter.autoloader(
+ *SyntaxHighlighter.autoloader(
  *     [ 'applescript',          'Scripts/shBrushAppleScript.js' ],
  *     [ 'actionscript3', 'as3', 'Scripts/shBrushAS3.js' ]
  * );
  *
  * or a more easily comprehendable one:
  *
- *this.SyntaxHighlighter.autoloader(
+ *SyntaxHighlighter.autoloader(
  *     'applescript       Scripts/shBrushAppleScript.js',
  *     'actionscript3 as3 Scripts/shBrushAS3.js'
  * );
@@ -31,7 +31,7 @@ sh.autoloader = function()
 		elements = sh.findElements(),
 		brushes = {},
 		scripts = {},
-		all = this.SyntaxHighlighter.all,
+		all = SyntaxHighlighter.all,
 		allCalled = false,
 		allParams = null,
 		i

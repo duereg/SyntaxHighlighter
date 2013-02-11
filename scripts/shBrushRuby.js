@@ -1,10 +1,10 @@
 ;(function()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -21,9 +21,9 @@
 						'ThreadGroup Thread Time TrueClass';
 
 		this.regexList = [
-			{ regex: this.SyntaxHighlighter.regexLib.singleLinePerlComments,	css: 'comments' },		// one line comments
-			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },		// double quoted strings
-			{ regex: this.SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },		// single quoted strings
+			{ regex: SyntaxHighlighter.regexLib.singleLinePerlComments,	css: 'comments' },		// one line comments
+			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },		// double quoted strings
+			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },		// single quoted strings
 			{ regex: /\b[A-Z0-9_]+\b/g,									css: 'constants' },		// constants
 			{ regex: /:[a-z][A-Za-z0-9_]*/g,							css: 'color2' },		// symbols
 			{ regex: /(\$|@@|@)\w+/g,									css: 'variable bold' },	// $global, @instance, and @@class variables
@@ -31,10 +31,10 @@
 			{ regex: new RegExp(this.getKeywords(builtins), 'gm'),		css: 'color1' }			// builtins
 			];
 
-		this.forHtmlScript( this.SyntaxHighlighter.regexLib.aspScriptTags);
+		this.forHtmlScript( SyntaxHighlighter.regexLib.aspScriptTags);
 	};
 
-	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['ruby', 'rails', 'ror', 'rb'];
 
 	SyntaxHighlighter.brushes.Ruby = Brush;

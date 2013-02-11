@@ -1,10 +1,10 @@
 ;(function()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -28,7 +28,7 @@
 		var special =  'None True False self cls class_';
 
 		this.regexList = [
-				{ regex: this.SyntaxHighlighter.regexLib.singleLinePerlComments, css: 'comments' },
+				{ regex: SyntaxHighlighter.regexLib.singleLinePerlComments, css: 'comments' },
 				{ regex: /^\s*@\w+/gm, 										css: 'decorator' },
 				{ regex: /(['\"]{3})([^\1])*?\1/gm, 						css: 'comments' },
 				{ regex: /"(?!")(?:\.|\\\"|[^\""\n])*"/gm, 					css: 'string' },
@@ -40,10 +40,10 @@
 				{ regex: new RegExp(this.getKeywords(special), 'gm'), 		css: 'color1' }
 				];
 			
-		this.forHtmlScript( this.SyntaxHighlighter.regexLib.aspScriptTags);
+		this.forHtmlScript( SyntaxHighlighter.regexLib.aspScriptTags);
 	};
 
-	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['py', 'python'];
 
 	SyntaxHighlighter.brushes.Python = Brush;

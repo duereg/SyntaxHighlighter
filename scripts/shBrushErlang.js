@@ -1,10 +1,10 @@
 ;(function()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -25,13 +25,13 @@
 			{ regex: new RegExp("\\%.+", 'gm'), 						css: 'comments' },
 			{ regex: new RegExp("\\?[A-Za-z0-9_]+", 'g'), 				css: 'preprocessor' },
 			{ regex: new RegExp("[a-z0-9_]+:[a-z0-9_]+", 'g'), 			css: 'functions' },
-			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },
-			{ regex: this.SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },
+			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },
+			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },
 			{ regex: new RegExp(this.getKeywords(keywords),	'gm'),		css: 'keyword' }
 			];
 	};
 
-	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['erl', 'erlang'];
 
 	SyntaxHighlighter.brushes.Erland = Brush;

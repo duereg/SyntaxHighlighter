@@ -1,10 +1,10 @@
 ;(function ()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -54,12 +54,12 @@
 			this.regexList.push ( {regex:new RegExp ( '!' + flags[i] , 'gm' ) , css:'comments'} );
 		}
 
-		this.forHtmlScript (this.SyntaxHighlighter.regexLib.scriptScriptTags );
+		this.forHtmlScript (SyntaxHighlighter.regexLib.scriptScriptTags );
 	}
 
 	;
 
-	Brush.prototype = new this.SyntaxHighlighter.Highlighter ();
+	Brush.prototype = new SyntaxHighlighter.Highlighter ();
 	Brush.aliases = ['haxe', 'hx'];
 
 	SyntaxHighlighter.brushes.Haxe = Brush;

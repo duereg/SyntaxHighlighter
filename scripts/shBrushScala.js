@@ -1,10 +1,10 @@
 ;(function()
 {
 	// CommonJS
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
 
@@ -19,18 +19,18 @@
 		var keyops =	'[_:=><%#@]+';
 
 		this.regexList = [
-			{ regex: this.SyntaxHighlighter.regexLib.singleLineCComments,			css: 'comments' },	// one line comments
-			{ regex: this.SyntaxHighlighter.regexLib.multiLineCComments,				css: 'comments' },	// multiline comments
-			{ regex: this.SyntaxHighlighter.regexLib.multiLineSingleQuotedString,	css: 'string' },	// multi-line strings
-			{ regex: this.SyntaxHighlighter.regexLib.multiLineDoubleQuotedString,    css: 'string' },	// double-quoted string
-			{ regex: this.SyntaxHighlighter.regexLib.singleQuotedString,				css: 'string' },	// strings
+			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,			css: 'comments' },	// one line comments
+			{ regex: SyntaxHighlighter.regexLib.multiLineCComments,				css: 'comments' },	// multiline comments
+			{ regex: SyntaxHighlighter.regexLib.multiLineSingleQuotedString,	css: 'string' },	// multi-line strings
+			{ regex: SyntaxHighlighter.regexLib.multiLineDoubleQuotedString,    css: 'string' },	// double-quoted string
+			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,				css: 'string' },	// strings
 			{ regex: /0x[a-f0-9]+|\d+(\.\d+)?/gi,								css: 'value' },		// numbers
 			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),				css: 'keyword' },	// keywords
 			{ regex: new RegExp(keyops, 'gm'),									css: 'keyword' }	// scala keyword
 			];
 	}
 
-	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['scala'];
 
 	SyntaxHighlighter.brushes.Scala = Brush;

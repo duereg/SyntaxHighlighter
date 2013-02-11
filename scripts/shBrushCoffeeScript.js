@@ -5,10 +5,10 @@
   Compiled from CoffeeScript, see http://rod.vagg.org/2011/02/coffeescript-brush-for-syntaxhighlighter/
   */
   var Brush;
-  if (typeof require !== 'undefined') {
-    this.SyntaxHighlighter = require('shCore').SyntaxHighlighter;
+    if (typeof require !== 'undefined') {
+    var SyntaxHighlighter = require('shCore').SyntaxHighlighter;
   }
-  if (!this.SyntaxHighlighter) {
+  if (!!!SyntaxHighlighter) {
     return;
   }
   Brush = function() {
@@ -18,19 +18,19 @@
     keywords = jsKeywords + ' ' + csKeywords;
     this.regexList = [
       {
-        regex: this.SyntaxHighlighter.regexLib.singleLinePerlComments,
+        regex: SyntaxHighlighter.regexLib.singleLinePerlComments,
         css: 'comments'
       }, {
         regex: /\#\#\#[\s\S]*?\#\#\#/gm,
         css: 'comments'
       }, {
-        regex: this.SyntaxHighlighter.regexLib.multiLineDoubleQuotedString,
+        regex: SyntaxHighlighter.regexLib.multiLineDoubleQuotedString,
         css: 'string'
       }, {
-        regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,
+        regex: SyntaxHighlighter.regexLib.doubleQuotedString,
         css: 'string'
       }, {
-        regex: this.SyntaxHighlighter.regexLib.singleQuotedString,
+        regex: SyntaxHighlighter.regexLib.singleQuotedString,
         css: 'string'
       }, {
         regex: /\'\'\'[\s\S]*?\'\'\'/gm,
@@ -60,9 +60,9 @@
     ];
     return;
   };
-  Brush.prototype = new this.SyntaxHighlighter.Highlighter();
+  Brush.prototype = new SyntaxHighlighter.Highlighter();
   Brush.aliases = ['coffeescript', 'CoffeeScript', 'coffee'];
-  this.SyntaxHighlighter.brushes.CoffeeScript = Brush;
+  SyntaxHighlighter.brushes.CoffeeScript = Brush;
   if (typeof exports !== 'undefined') {
     exports.Brush = Brush;
   }
