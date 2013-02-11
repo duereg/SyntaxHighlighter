@@ -59,8 +59,8 @@
 			{ regex: /\bq[qwxr]?(<|&lt;)[\s\S]*?(>|&gt;)/g,	css: 'string' }, // quote-like operators <>
 			{ regex: /\bq[qwxr]?([^\w({<[])[\s\S]*?\1/g,	css: 'string' }, // quote-like operators non-paired
 
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,	css: 'string' },
+			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },
+			{ regex: this.SyntaxHighlighter.regexLib.singleQuotedString,	css: 'string' },
 			// currently ignoring single quote package separator and utf8 names
 			{ regex: /(?:&amp;|[$@%*]|\$#)\$?[a-zA-Z_](\w+|::)*/g,   		css: 'variable' },
 			{ regex: /\b__(?:END|DATA)__\b[\s\S]*$/g,				css: 'comments' },
@@ -69,10 +69,10 @@
 			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),	css: 'keyword' }
 		];
 
-		this.forHtmlScript(SyntaxHighlighter.regexLib.phpScriptTags);
+		this.forHtmlScript( this.SyntaxHighlighter.regexLib.phpScriptTags);
 	}
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
 	Brush.aliases		= ['perl', 'Perl', 'pl'];
 
 	SyntaxHighlighter.brushes.Perl = Brush;

@@ -1,7 +1,7 @@
-//require.paths.unshift(__dirname + '/../scripts');
+//This version of the node.js demo requires that the NODE_PATH variable be set to the /scripts/ folder
 
 var sys = require('sys'),
-	shSyntaxHighlighter = require('shCore').SyntaxHighlighter,
+	//shSyntaxHighlighter = require('shCore').SyntaxHighlighter,
 	shJScript = require('shBrushJScript').Brush,
 	
 	code = '\

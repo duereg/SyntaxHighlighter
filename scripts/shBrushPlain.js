@@ -12,7 +12,7 @@
 	{
 	};
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['text', 'plain'];
 
 	SyntaxHighlighter.brushes.Plain = Brush;

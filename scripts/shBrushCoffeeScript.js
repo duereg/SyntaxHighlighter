@@ -18,19 +18,19 @@
     keywords = jsKeywords + ' ' + csKeywords;
     this.regexList = [
       {
-        regex: SyntaxHighlighter.regexLib.singleLinePerlComments,
+        regex: this.SyntaxHighlighter.regexLib.singleLinePerlComments,
         css: 'comments'
       }, {
         regex: /\#\#\#[\s\S]*?\#\#\#/gm,
         css: 'comments'
       }, {
-        regex: SyntaxHighlighter.regexLib.multiLineDoubleQuotedString,
+        regex: this.SyntaxHighlighter.regexLib.multiLineDoubleQuotedString,
         css: 'string'
       }, {
-        regex: SyntaxHighlighter.regexLib.doubleQuotedString,
+        regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,
         css: 'string'
       }, {
-        regex: SyntaxHighlighter.regexLib.singleQuotedString,
+        regex: this.SyntaxHighlighter.regexLib.singleQuotedString,
         css: 'string'
       }, {
         regex: /\'\'\'[\s\S]*?\'\'\'/gm,

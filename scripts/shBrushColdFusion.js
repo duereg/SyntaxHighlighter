@@ -70,16 +70,16 @@
 
 		this.regexList = [
 			{ regex: new RegExp('--(.*)$', 'gm'),						css: 'comments' },  // one line and multiline comments
-			{ regex: SyntaxHighlighter.regexLib.xmlComments,			css: 'comments' },    // single quoted strings
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },    // double quoted strings
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },    // single quoted strings
+			{ regex: this.SyntaxHighlighter.regexLib.xmlComments,			css: 'comments' },    // single quoted strings
+			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },    // double quoted strings
+			{ regex: this.SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },    // single quoted strings
 			{ regex: new RegExp(this.getKeywords(funcs), 'gmi'),		css: 'functions' }, // functions
 			{ regex: new RegExp(this.getKeywords(operators), 'gmi'),	css: 'color1' },    // operators and such
 			{ regex: new RegExp(this.getKeywords(keywords), 'gmi'),		css: 'keyword' }    // keyword
 			];
 	}
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['coldfusion','cf'];
 	
 	SyntaxHighlighter.brushes.ColdFusion = Brush;

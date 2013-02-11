@@ -19,11 +19,11 @@
 						'transient try void volatile while';
 
 		this.regexList = [
-			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },		// one line comments
+			{ regex: this.SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },		// one line comments
 			{ regex: /\/\*([^\*][\s\S]*)?\*\//gm,						css: 'comments' },	 	// multiline comments
 			{ regex: /\/\*(?!\*\/)\*[\s\S]*?\*\//gm,					css: 'preprocessor' },	// documentation comments
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },		// strings
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },		// strings
+			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },		// strings
+			{ regex: this.SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },		// strings
 			{ regex: /\b([\d]+(\.[\d]+)?|0x[a-f0-9]+)\b/gi,				css: 'value' },			// numbers
 			{ regex: /(?!\@interface\b)\@[\$\w]+\b/g,					css: 'color1' },		// annotation @anno
 			{ regex: /\@interface\b/g,									css: 'color2' },		// @interface keyword
@@ -36,7 +36,7 @@
 		});
 	};
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['java'];
 
 	SyntaxHighlighter.brushes.Java = Brush;

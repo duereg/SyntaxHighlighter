@@ -17,7 +17,7 @@
 				'static return super switch ' +
 				'this throw true try typeof var while with yield';
 
-		var r = SyntaxHighlighter.regexLib;
+		var r = this.SyntaxHighlighter.regexLib;
 		
 		this.regexList = [
 			{ regex: r.multiLineDoubleQuotedString,					css: 'string' },			// double quoted strings
@@ -31,7 +31,7 @@
 		this.forHtmlScript(r.scriptScriptTags);
 	};
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['js', 'jscript', 'javascript'];
 
 	SyntaxHighlighter.brushes.JScript = Brush;

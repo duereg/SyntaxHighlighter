@@ -26,25 +26,25 @@
 				: 'comments'
 				;
 			
-			return [new SyntaxHighlighter.Match(match[0], match.index, css)];
+			return [new this.SyntaxHighlighter.Match(match[0], match.index, css)];
 		}
 
 		this.regexList = [
-			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,	func : fixComments },		// one line comments
-			{ regex: SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },			// multiline comments
+			{ regex: this.SyntaxHighlighter.regexLib.singleLineCComments,	func : fixComments },		// one line comments
+			{ regex: this.SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },			// multiline comments
 			{ regex: /@"(?:[^"]|"")*"/g,								css: 'string' },			// @-quoted strings
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },			// strings
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },			// strings
+			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },			// strings
+			{ regex: this.SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },			// strings
 			{ regex: /^\s*#.*/gm,										css: 'preprocessor' },		// preprocessor tags like #region and #endregion
 			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword' },			// c# keyword
 			{ regex: /\bpartial(?=\s+(?:class|interface|struct)\b)/g,	css: 'keyword' },			// contextual keyword: 'partial'
 			{ regex: /\byield(?=\s+(?:return|break)\b)/g,				css: 'keyword' }			// contextual keyword: 'yield'
 			];
 		
-		this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
+		this.forHtmlScript( this.SyntaxHighlighter.regexLib.aspScriptTags);
 	};
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['c#', 'c-sharp', 'csharp'];
 
 	SyntaxHighlighter.brushes.CSharp = Brush;

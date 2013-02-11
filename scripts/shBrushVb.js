@@ -27,15 +27,15 @@
 
 		this.regexList = [
 			{ regex: /'.*$/gm,										css: 'comments' },			// one line comments
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },			// strings
+			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },			// strings
 			{ regex: /^\s*#.*$/gm,									css: 'preprocessor' },		// preprocessor tags like #region and #endregion
 			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),	css: 'keyword' }			// vb keyword
 			];
 
-		this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
+		this.forHtmlScript( this.SyntaxHighlighter.regexLib.aspScriptTags);
 	};
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['vb', 'vbnet'];
 
 	SyntaxHighlighter.brushes.Vb = Brush;

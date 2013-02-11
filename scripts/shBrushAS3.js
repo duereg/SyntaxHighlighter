@@ -24,10 +24,10 @@
 						;
 	
 		this.regexList = [
-			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },		// one line comments
-			{ regex: SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },		// multiline comments
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },		// double quoted strings
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },		// single quoted strings
+			{ regex: this.SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },		// one line comments
+			{ regex: this.SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },		// multiline comments
+			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },		// double quoted strings
+			{ regex: this.SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },		// single quoted strings
 			{ regex: /\b([\d]+(\.[\d]+)?|0x[a-f0-9]+)\b/gi,				css: 'value' },			// numbers
 			{ regex: new RegExp(this.getKeywords(inits), 'gm'),			css: 'color3' },		// initializations
 			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword' },		// keywords
@@ -35,10 +35,10 @@
 			{ regex: new RegExp('trace', 'gm'),							css: 'color1' }			// trace
 			];
 	
-		this.forHtmlScript(SyntaxHighlighter.regexLib.scriptScriptTags);
+		this.forHtmlScript( this.SyntaxHighlighter.regexLib.scriptScriptTags);
 	};
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['actionscript3', 'as3'];
 
 	SyntaxHighlighter.brushes.AS3 = Brush;

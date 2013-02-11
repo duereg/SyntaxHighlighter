@@ -31,10 +31,10 @@
 						'getText';
 
 		this.regexList = [
-			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,				css: 'comments' },		// one line comments
-			{ regex: SyntaxHighlighter.regexLib.multiLineCComments,					css: 'comments' },		// multiline comments
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,					css: 'string' },		// strings
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,					css: 'string' },		// strings
+			{ regex: this.SyntaxHighlighter.regexLib.singleLineCComments,				css: 'comments' },		// one line comments
+			{ regex: this.SyntaxHighlighter.regexLib.multiLineCComments,					css: 'comments' },		// multiline comments
+			{ regex: this.SyntaxHighlighter.regexLib.doubleQuotedString,					css: 'string' },		// strings
+			{ regex: this.SyntaxHighlighter.regexLib.singleQuotedString,					css: 'string' },		// strings
 			{ regex: /""".*"""/g,													css: 'string' },		// GStrings
 			{ regex: new RegExp('\\b([\\d]+(\\.[\\d]+)?|0x[a-f0-9]+)\\b', 'gi'),	css: 'value' },			// numbers
 			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),					css: 'keyword' },		// goovy keyword
@@ -43,10 +43,10 @@
 			{ regex: new RegExp(this.getKeywords(methods), 'gm'),					css: 'functions' }		// methods
 			];
 
-		this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
+		this.forHtmlScript( this.SyntaxHighlighter.regexLib.aspScriptTags);
 	}
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['groovy'];
 
 	SyntaxHighlighter.brushes.Groovy = Brush;

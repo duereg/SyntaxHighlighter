@@ -54,7 +54,7 @@
 		];
 	};
 
-	Brush.prototype = new SyntaxHighlighter.Highlighter();
+	Brush.prototype = new this.SyntaxHighlighter.Highlighter();
 	Brush.aliases = ['applescript'];
 
 	SyntaxHighlighter.brushes.AppleScript = Brush;

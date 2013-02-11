@@ -41,7 +41,7 @@ dp.SyntaxHighlighter = {
 			straight = { 'true' : true }
 			reverse = { 'true' : false },
 			result = null,
-			defaults = SyntaxHighlighter.defaults
+			defaults = dp.SyntaxHighlighter.defaults
 			;
 		
 		for (var i in parts)

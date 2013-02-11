@@ -20,7 +20,7 @@
 			];
 	};
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['diff', 'patch'];
 
 	SyntaxHighlighter.brushes.Diff = Brush;

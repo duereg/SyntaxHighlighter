@@ -13,14 +13,14 @@ var sh = this.SyntaxHighlighter;
  *
  * There are two syntaxes that autoload understands. For example:
  * 
- * SyntaxHighlighter.autoloader(
+ *this.SyntaxHighlighter.autoloader(
  *     [ 'applescript',          'Scripts/shBrushAppleScript.js' ],
  *     [ 'actionscript3', 'as3', 'Scripts/shBrushAS3.js' ]
  * );
  *
  * or a more easily comprehendable one:
  *
- * SyntaxHighlighter.autoloader(
+ *this.SyntaxHighlighter.autoloader(
  *     'applescript       Scripts/shBrushAppleScript.js',
  *     'actionscript3 as3 Scripts/shBrushAS3.js'
  * );
@@ -31,7 +31,7 @@ sh.autoloader = function()
 		elements = sh.findElements(),
 		brushes = {},
 		scripts = {},
-		all = SyntaxHighlighter.all,
+		all = this.SyntaxHighlighter.all,
 		allCalled = false,
 		allParams = null,
 		i

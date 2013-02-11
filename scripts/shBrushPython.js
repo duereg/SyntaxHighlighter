@@ -28,7 +28,7 @@
 		var special =  'None True False self cls class_';
 
 		this.regexList = [
-				{ regex: SyntaxHighlighter.regexLib.singleLinePerlComments, css: 'comments' },
+				{ regex: this.SyntaxHighlighter.regexLib.singleLinePerlComments, css: 'comments' },
 				{ regex: /^\s*@\w+/gm, 										css: 'decorator' },
 				{ regex: /(['\"]{3})([^\1])*?\1/gm, 						css: 'comments' },
 				{ regex: /"(?!")(?:\.|\\\"|[^\""\n])*"/gm, 					css: 'string' },
@@ -40,10 +40,10 @@
 				{ regex: new RegExp(this.getKeywords(special), 'gm'), 		css: 'color1' }
 				];
 			
-		this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
+		this.forHtmlScript( this.SyntaxHighlighter.regexLib.aspScriptTags);
 	};
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['py', 'python'];
 
 	SyntaxHighlighter.brushes.Python = Brush;

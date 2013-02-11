@@ -54,12 +54,12 @@
 			this.regexList.push ( {regex:new RegExp ( '!' + flags[i] , 'gm' ) , css:'comments'} );
 		}
 
-		this.forHtmlScript ( SyntaxHighlighter.regexLib.scriptScriptTags );
+		this.forHtmlScript (this.SyntaxHighlighter.regexLib.scriptScriptTags );
 	}
 
 	;
 
-	Brush.prototype = new SyntaxHighlighter.Highlighter ();
+	Brush.prototype = new this.SyntaxHighlighter.Highlighter ();
 	Brush.aliases = ['haxe', 'hx'];
 
 	SyntaxHighlighter.brushes.Haxe = Brush;

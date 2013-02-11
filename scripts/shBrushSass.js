@@ -55,7 +55,7 @@
 		var statements		= '!important !default';
 		var preprocessor	= '@import @extend @debug @warn @if @for @while @mixin @include';
 		
-		var r = SyntaxHighlighter.regexLib;
+		var r = this.SyntaxHighlighter.regexLib;
 		
 		this.regexList = [
 			{ regex: r.multiLineCComments,								css: 'comments' },		// multiline comments
@@ -73,7 +73,7 @@
 			];
 	};
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.prototype	= new this.SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['sass', 'scss'];
 
 	SyntaxHighlighter.brushes.Sass = Brush;
