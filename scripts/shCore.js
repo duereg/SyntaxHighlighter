@@ -1707,8 +1707,9 @@ sh.Highlighter.prototype = {
 	}
 }; // end of Highlighter
 
+// CommonJS
+typeof(exports) != 'undefined' ? exports.SyntaxHighlighter = sh : null;
+
 return sh;
 }(); // end of anonymous function
 
-// CommonJS
-typeof(exports) != 'undefined' ? exports.SyntaxHighlighter = SyntaxHighlighter : null;
